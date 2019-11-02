@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MLPayment.Data
+namespace MLPayment.Business
 {
-    public class Class1
+    public class UsersComponent
     {
     }
 }
