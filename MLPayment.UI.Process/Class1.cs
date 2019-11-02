@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MLFacturacion.Business
+namespace MLPayment.UI.Process
 {
     public class Class1
     {

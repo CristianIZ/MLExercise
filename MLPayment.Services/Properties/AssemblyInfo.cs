@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // La información general de un ensamblado se controla mediante el siguiente 
 // conjunto de atributos. Cambie estos valores de atributo para modificar la información
 // asociada con un ensamblado.
-[assembly: AssemblyTitle("MLFacturacion.Business")]
+[assembly: AssemblyTitle("MLPayment.Services")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("MLFacturacion.Business")]
+[assembly: AssemblyProduct("MLPayment.Services")]
 [assembly: AssemblyCopyright("Copyright ©  2019")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // El siguiente GUID sirve como id. de typelib si este proyecto se expone a COM.
-[assembly: Guid("8e56f8d4-6103-4640-8eaf-d44bbd1d7015")]
+[assembly: Guid("fd1db9c7-f5bb-427a-8b9d-35bf07d2bdd3")]
 
 // La información de versión de un ensamblado consta de los cuatro valores siguientes:
 //
