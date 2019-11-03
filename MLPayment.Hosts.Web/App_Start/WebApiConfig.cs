@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
+using System.Web;
 using System.Web.Http;
+using System.Web.Http.Dispatcher;
 
 namespace MLPayment.Hosts.Web
 {
@@ -9,16 +12,15 @@ namespace MLPayment.Hosts.Web
     {
         public static void Register(HttpConfiguration config)
         {
-            // Configuración y servicios de API web
+            var suffix = typeof(DefaultHttpControllerSelector).GetField("ControllerSuffix", BindingFlags.Static | BindingFlags.Public);
+            if (suffix != null) suffix.SetValue(null, string.Empty);
 
-            // Rutas de API web
+            config.Services.Replace(typeof(IHttpControllerTypeResolver),
+                new HttpServiceTypeResolver());
+
             config.MapHttpAttributeRoutes();
-
-            config.Routes.MapHttpRoute(
-                name: "DefaultApi",
-                routeTemplate: "api/{controller}/{id}",
-                defaults: new { id = RouteParameter.Optional }
-            );
+            var appXmlType = config.Formatters.XmlFormatter.SupportedMediaTypes.FirstOrDefault(t => t.MediaType == "application/xml");
+            config.Formatters.XmlFormatter.SupportedMediaTypes.Remove(appXmlType);
         }
     }
 }

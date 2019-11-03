@@ -44,5 +44,15 @@
     <Compile Include="UsersComponent.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MLPayment.Data\MLPayment.Data.csproj">
+      <Project>{1B298E32-2ABF-46FC-86C6-7BFB746FD76D}</Project>
+      <Name>MLPayment.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MLPayment.Entities\MLPayment.Entities.csproj">
+      <Project>{44F4FEBC-3ABE-4022-98B5-59E7317ACB73}</Project>
+      <Name>MLPayment.Entities</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -5,6 +5,7 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
+using static MLPayment.Entities.Enums;
 
 namespace MLPayment.Entities
 {
@@ -28,7 +29,7 @@ namespace MLPayment.Entities
 
         [DataMember]
         [DisplayName("Gender")]
-        public int Gender { get; set; }
+        public Gender Gender { get; set; }
 
         [DataMember]
         [DisplayName("Address")]
