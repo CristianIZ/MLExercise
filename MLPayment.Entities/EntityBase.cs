@@ -9,8 +9,6 @@ namespace MLPayment.Entities
     [DataContract]
     public abstract class EntityBase : INotifyPropertyChanged
     {
-        public abstract int Id { get; set; }
-
         public event PropertyChangedEventHandler PropertyChanged;
 
         public void NotifyPropertyChanged(string propertyName)

@@ -6,12 +6,12 @@ using System.Text;
 using System.Threading.Tasks;
 using entity = MLPayment.Entities;
 
-namespace MLPayment.Services.Contracts.User.Request
+namespace MLPayment.Services.Contracts.Charge.Request
 {
     [DataContract]
-    public class AddUserRequest
+    public class GetChargeRequest
     {
         [DataMember]
-        public entity.User User { get; set; }
+        public int IdCharge { get; set; }
     }
 }

@@ -42,6 +42,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Charge\Request\AddChargeRequest.cs" />
+    <Compile Include="Charge\Request\GetChargeRequest.cs" />
+    <Compile Include="Charge\Response\AddChargeResponse.cs" />
+    <Compile Include="Charge\Response\GetChargeResponse.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="User\Request\AddUserRequest.cs" />
     <Compile Include="User\Request\DeleteUserRequest.cs" />

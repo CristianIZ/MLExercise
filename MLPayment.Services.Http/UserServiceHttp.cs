@@ -1,5 +1,4 @@
 ﻿using MLPayment.Business;
-using MLPayment.Entities;
 using MLPayment.Services.Contracts.User.Request;
 using MLPayment.Services.Contracts.User.Response;
 using System;
@@ -70,6 +69,11 @@ namespace MLPayment.Services.Http
             }
         }
 
+        /// <summary>
+        /// Edit an User using the id in the entity
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
         [HttpPost][Route("Edit")]
         public EditUserResponse Edit(EditUserRequest request)
         {
@@ -93,6 +97,11 @@ namespace MLPayment.Services.Http
             }
         }
 
+        /// <summary>
+        /// Delete the user with the id selected
+        /// </summary>
+        /// <param name="id">User id to be deleted</param>
+        /// <returns></returns>
         [HttpPost][Route("Delete")]
         public DeleteUserResponse Delete(int id)
         {
@@ -116,8 +125,12 @@ namespace MLPayment.Services.Http
             }
         }
 
-        [HttpGet]
-        [Route("GetById")]
+        /// <summary>
+        /// Get request that responses the user with the selected Id
+        /// </summary>
+        /// <param name="id">User id to be reached</param>
+        /// <returns></returns>
+        [HttpGet][Route("GetById")]
         public GetUserResponse GetById(int id)
         {
             try

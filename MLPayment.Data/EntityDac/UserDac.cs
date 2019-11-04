@@ -7,6 +7,7 @@ using System.Data.Common;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MLPayment.Data.Helpers;
 using static MLPayment.Entities.Enums;
 
 namespace MLPayment.Data
@@ -21,7 +22,7 @@ namespace MLPayment.Data
         public User Create(User user)
         {
             var db = DatabaseFactory.CreateDatabase(CONNECTION_NAME);
-            using (DbCommand cmd = db.GetSqlStringCommand(SqlQuerys.InsertNewUser))
+            using (DbCommand cmd = db.GetSqlStringCommand(SqlQuerys.AddNewUser))
             {
                 db.AddInParameter(cmd, "@Document", DbType.AnsiString, user.Document);
                 db.AddInParameter(cmd, "@DocumentType", DbType.Int32, user.DocumentType);
@@ -31,7 +32,7 @@ namespace MLPayment.Data
                 db.AddInParameter(cmd, "@AddressNumber", DbType.Int32, user.AddressNumber);
                 db.AddInParameter(cmd, "@Phone", DbType.AnsiString, user.Phone);
                 db.AddInParameter(cmd, "@BirthDate", DbType.Int32, user.BirthDate);
-                db.AddInParameter(cmd, "@DateIndex", DbType.Int32, user.DateIndex);
+                db.AddInParameter(cmd, "@DateIndex", DbType.Int32, DateFormatHelper.DateToIntFormat(DateTime.Now));
                 user.Id = Convert.ToInt32(db.ExecuteScalar(cmd));
             }
             return user;

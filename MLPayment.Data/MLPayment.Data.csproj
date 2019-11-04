@@ -48,8 +48,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EntityDac\BillChargeDAC.cs" />
+    <Compile Include="EntityDac\BillDAC.cs" />
+    <Compile Include="EntityDac\ChargeDAC.cs" />
+    <Compile Include="Helpers\DateFormatHelper.cs" />
     <Compile Include="SqlQuerys.cs" />
-    <Compile Include="UserDAC.cs" />
+    <Compile Include="EntityDac\UserDAC.cs" />
     <Compile Include="DataAccessComponent.cs" />
     <Compile Include="IRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
