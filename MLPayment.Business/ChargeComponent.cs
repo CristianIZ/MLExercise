@@ -18,21 +18,24 @@ namespace MLPayment.Business
         /// <returns></returns>
         public Charge Add(User user, Charge charge)
         {
-            var billDac = new BillDAC();
-            var chargeDAC = new ChargeDAC();
-
-            var billForCharge = billDac.GetBillByUserAndMonth(user, DateTime.Now);
-
-            if (billForCharge == null)
+            // Get the Current bill for the user
+            var billComponent = new BillComponent();
+            var bill = billComponent.GetBillByUserAndMonth(user, DateTime.Now);
+            
+            if (bill == null)
             {
-                billForCharge = new Bill() { IdUser = user.Id };
-                billForCharge = billDac.Create(billForCharge);
+                bill = new Bill() { IdUser = user.Id };
+                bill = billComponent.Add(user, bill);
             }
 
+            // Add a charge for that bill
             var chargeResult = default(Charge);
+            var chargeDAC = new ChargeDAC();
             chargeResult = chargeDAC.Create(charge);
 
-
+            // Add a Bill Charge with te information
+            var billChargeComponent = new BillChargeComponent();
+            var billCharge = billChargeComponent.Add(bill, chargeResult);
 
             return chargeResult;
         }

@@ -12,7 +12,7 @@ namespace MLPayment.Entities
         public int IdCharge { get; set; }
         public int DateIndex { get; set; }
         public DateTime DateCreation { get; set; }
-        public DateTime DateModification { get; set; }
+        public DateTime? DateModification { get; set; }
         public bool Valid { get; set; }
     }
 }

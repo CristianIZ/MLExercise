@@ -53,8 +53,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ChargeServiceHttp.cs" />
-    <Compile Include="UserServiceHttp.cs" />
+    <Compile Include="Http\ChargeServiceHttp.cs" />
+    <Compile Include="Http\UserServiceHttp.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

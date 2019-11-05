@@ -8,12 +8,20 @@ using MLPayment.Data;
 
 namespace MLPayment.Business
 {
-    class BillComponent
+    public class BillComponent
     {
+        /// <summary>
+        /// Merge the information in the user (id) and bill to add a new bill
+        /// </summary>
+        /// <param name="user"></param>
+        /// <param name="bill"></param>
+        /// <returns></returns>
         public Bill Add(User user, Bill bill)
         {
             var result = default(Bill);
             var billDAC = new BillDAC();
+
+            bill.IdUser = user.Id;
 
             result = billDAC.Create(bill);
             return result;
@@ -51,6 +59,20 @@ namespace MLPayment.Business
         {
             var billDAC = new BillDAC();
             billDAC.Delete(Id);
+        }
+
+        /// <summary>
+        /// Gets the bill of the selected user that matches with the current month
+        /// </summary>
+        /// <param name="user"></param>
+        /// <param name="date"></param>
+        /// <returns></returns>
+        public Bill GetBillByUserAndMonth(User user, DateTime date)
+        {
+            var billDAC = new BillDAC();
+            var result = billDAC.GetBillByUserAndMonth(user, date);
+
+            return result;
         }
     }
 }
