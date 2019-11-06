@@ -20,6 +20,7 @@ namespace MLPayment.Data
             using (DbCommand cmd = db.GetStoredProcCommand(SqlQuerys.AddNewBill))
             {
                 db.AddInParameter(cmd, "@IdUser", DbType.AnsiString, bill.IdUser);
+                db.AddInParameter(cmd, "@BillNumber", DbType.AnsiString, bill.BillNumber);
                 db.AddInParameter(cmd, "@DateIndex", DbType.Int32, DateFormatHelper.DateToIntFormat(DateTime.Now));
                 bill.Id = Convert.ToInt32(db.ExecuteScalar(cmd));
             }
@@ -32,9 +33,22 @@ namespace MLPayment.Data
             throw new NotImplementedException();
         }
 
-        public List<Bill> Read()
+        public IList<Bill> Read()
         {
-            throw new NotImplementedException();
+            var result = new List<Bill>();
+            var db = DatabaseFactory.CreateDatabase(CONNECTION_NAME);
+            using (DbCommand cmd = db.GetSqlStringCommand(SqlQuerys.GetTop1000Bills))
+            {
+                using (IDataReader dr = db.ExecuteReader(cmd))
+                {
+                    while (dr.Read())
+                    {
+                        Bill bill = LoadBill(dr);
+                        result.Add(bill);
+                    }
+                }
+            }
+            return result;
         }
 
         /// <summary>
@@ -43,16 +57,16 @@ namespace MLPayment.Data
         /// <param name="user">User to be searched</param>
         /// <param name="date">Date to be searched</param>
         /// <returns></returns>
-        public Bill GetBillByUserAndMonth(User user, DateTime date)
+        public Bill GetBillByUserAndMonth(int idUser, DateTime date)
         {
             Bill charge = null;
 
             var db = DatabaseFactory.CreateDatabase(CONNECTION_NAME);
-            using (DbCommand cmd = db.GetStoredProcCommand(SqlQuerys.GetBillById))
+            using (DbCommand cmd = db.GetSqlStringCommand(SqlQuerys.GetBillByIdUserAndMonth))
             {
-                db.AddInParameter(cmd, "@Id", DbType.Int32, user.Id);
+                db.AddInParameter(cmd, "@Id", DbType.Int32, idUser);
                 db.AddInParameter(cmd, "@MaxDate", DbType.Int32, DateFormatHelper.FirstDayMonth(date));
-                db.AddInParameter(cmd, "@Mindate", DbType.Int32, DateFormatHelper.LastDayMonth(date));
+                db.AddInParameter(cmd, "@MinDate", DbType.Int32, DateFormatHelper.LastDayMonth(date));
                 using (IDataReader dr = db.ExecuteReader(cmd))
                 {
                     if (dr.Read())

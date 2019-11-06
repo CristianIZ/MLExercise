@@ -7,5 +7,7 @@ namespace MLPayment.UI.Web.Dtos
 {
     public class BillDto
     {
+        public int IdUser { get; set; }
+        public int BillNumber { get; set; }
     }
 }

@@ -32,9 +32,22 @@ namespace MLPayment.Data
             throw new NotImplementedException();
         }
 
-        public List<Charge> Read()
+        public IList<Charge> Read()
         {
-            throw new NotImplementedException();
+            var result = new List<Charge>();
+            var db = DatabaseFactory.CreateDatabase(CONNECTION_NAME);
+            using (DbCommand cmd = db.GetSqlStringCommand(SqlQuerys.GetTop1000Charges))
+            {
+                using (IDataReader dr = db.ExecuteReader(cmd))
+                {
+                    while (dr.Read())
+                    {
+                        Charge charge = LoadCharge(dr);
+                        result.Add(charge);
+                    }
+                }
+            }
+            return result;
         }
 
         public Charge ReadBy(int id)

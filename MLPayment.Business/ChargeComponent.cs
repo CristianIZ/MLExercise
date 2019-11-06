@@ -16,16 +16,16 @@ namespace MLPayment.Business
         /// <param name="user">User to be charged</param>
         /// <param name="charge">Charge with the amount</param>
         /// <returns></returns>
-        public Charge Add(User user, Charge charge)
+        public Charge Add(int idUser, Charge charge)
         {
             // Get the Current bill for the user
             var billComponent = new BillComponent();
-            var bill = billComponent.GetBillByUserAndMonth(user, DateTime.Now);
+            var bill = billComponent.GetBillByUserAndMonth(idUser, DateTime.Now);
             
             if (bill == null)
             {
-                bill = new Bill() { IdUser = user.Id };
-                bill = billComponent.Add(user, bill);
+                bill = new Bill() { IdUser = idUser };
+                bill = billComponent.Add(idUser, bill);
             }
 
             // Add a charge for that bill
@@ -72,6 +72,12 @@ namespace MLPayment.Business
         {
             var chargeDAC = new ChargeDAC();
             chargeDAC.Delete(Id);
+        }
+
+        public IList<Charge> GetTop1000()
+        {
+            var chargeDAC = new ChargeDAC();
+            return chargeDAC.Read();
         }
     }
 }

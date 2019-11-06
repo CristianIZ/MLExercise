@@ -17,7 +17,7 @@ namespace MLPayment.Data
         {
             var db = DatabaseFactory.CreateDatabase(CONNECTION_NAME);
 
-            using (DbCommand cmd = db.GetStoredProcCommand(SqlQuerys.AddNewBill))
+            using (DbCommand cmd = db.GetStoredProcCommand(SqlQuerys.AddNewBillCharge))
             {
                 db.AddInParameter(cmd, "@IdBill", DbType.AnsiString, billCharge.IdBill);
                 db.AddInParameter(cmd, "@IdCharge", DbType.AnsiString, billCharge.IdCharge);

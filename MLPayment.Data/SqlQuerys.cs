@@ -22,15 +22,17 @@ namespace MLPayment.Data
         public const string GetChargeById = "Charges_GetById";
         #endregion
 
-
         #region Bills
         public const string AddNewBill = "Bills_ADD";
         public const string GetBillById = "Bills_GetById";
+        public const string GetBillByIdUserAndMonth = "SELECT * FROM Bills WHERE IdUser = 2 AND DateIndex BETWEEN @MinDate AND @MaxDate";
+        public const string GetTop1000Bills = "SELECT TOP 1000 * FROM [MLPayment].dbo.Bills";
         #endregion
 
         #region Charges & Bills
-        public const string AddNewChargeBill = "ChargesBills_ADD";
-        public const string GetChargeBillById = "ChargesBills_GetById";
+        public const string GetTop1000Charges = "SELECT TOP 1000 * FROM [MLPayment].dbo.Charges";
+        public const string AddNewBillCharge = "BillsCharges_ADD";
+        public const string GetChargeBillById = "BillsCharges_GetByBills";
         #endregion
     }
 }

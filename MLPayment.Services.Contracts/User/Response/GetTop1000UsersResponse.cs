@@ -12,6 +12,6 @@ namespace MLPayment.Services.Contracts.User.Response
     public class GetTop1000UsersResponse
     {
         [DataMember]
-        public List<entity.User> Users { get; set; }
+        public IList<entity.User> Users { get; set; }
     }
 }

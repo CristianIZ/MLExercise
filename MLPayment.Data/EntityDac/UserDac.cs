@@ -56,7 +56,7 @@ namespace MLPayment.Data
         /// Search a list of top 1000 users
         /// </summary>
         /// <returns></returns>
-        public List<User> Read()
+        public IList<User> Read()
         {
             var result = new List<User>();
             var db = DatabaseFactory.CreateDatabase(CONNECTION_NAME);

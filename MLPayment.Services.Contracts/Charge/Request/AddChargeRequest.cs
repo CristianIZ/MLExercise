@@ -12,7 +12,7 @@ namespace MLPayment.Services.Contracts.Charge.Request
     public class AddChargeRequest
     {
         [DataMember]
-        public entity.User User { get; set; }
+        public int IdUser { get; set; }
 
         [DataMember]
         public entity.Charge Charge { get; set; }

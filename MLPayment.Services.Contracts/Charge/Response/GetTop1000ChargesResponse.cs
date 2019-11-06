@@ -6,16 +6,12 @@ using System.Text;
 using System.Threading.Tasks;
 using entity = MLPayment.Entities;
 
-namespace MLPayment.Services.Contracts.Bill.Request
+namespace MLPayment.Services.Contracts.Charge.Response
 {
     [DataContract]
-    public class AddBillRequest
+    public class GetTop1000ChargesResponse
     {
         [DataMember]
-        public int idUser { get; set; }
-
-        [DataMember]
-        public entity.Bill Bill { get; set; }
-
+        public IList<entity.Charge> Charges { get; set; }
     }
 }

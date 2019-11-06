@@ -16,12 +16,12 @@ namespace MLPayment.Business
         /// <param name="user"></param>
         /// <param name="bill"></param>
         /// <returns></returns>
-        public Bill Add(User user, Bill bill)
+        public Bill Add(int idUser, Bill bill)
         {
             var result = default(Bill);
             var billDAC = new BillDAC();
 
-            bill.IdUser = user.Id;
+            bill.IdUser = idUser;
 
             result = billDAC.Create(bill);
             return result;
@@ -61,16 +61,25 @@ namespace MLPayment.Business
             billDAC.Delete(Id);
         }
 
+        public IList<Bill> GetTop1000()
+        {
+            var result = default(IList<Bill>);
+
+            var userDAC = new BillDAC();
+            result = userDAC.Read();
+            return result;
+        }
+
         /// <summary>
         /// Gets the bill of the selected user that matches with the current month
         /// </summary>
         /// <param name="user"></param>
         /// <param name="date"></param>
         /// <returns></returns>
-        public Bill GetBillByUserAndMonth(User user, DateTime date)
+        public Bill GetBillByUserAndMonth(int idUser, DateTime date)
         {
             var billDAC = new BillDAC();
-            var result = billDAC.GetBillByUserAndMonth(user, date);
+            var result = billDAC.GetBillByUserAndMonth(idUser, date);
 
             return result;
         }

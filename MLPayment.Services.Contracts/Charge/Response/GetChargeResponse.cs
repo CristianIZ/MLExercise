@@ -12,6 +12,6 @@ namespace MLPayment.Services.Contracts.Charge.Response
     public class GetChargeResponse
     {
         [DataMember]
-        public entity.Charge Result { get; set; }
+        public entity.Charge Charge { get; set; }
     }
 }

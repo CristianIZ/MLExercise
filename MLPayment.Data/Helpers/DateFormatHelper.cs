@@ -32,7 +32,7 @@ namespace MLPayment.Data.Helpers
         }
 
         /// <summary>
-        /// Obtains the first day of the current month
+        /// Returns the same date but with the first day of the month
         /// </summary>
         /// <param name="date"></param>
         /// <returns></returns>
@@ -49,7 +49,7 @@ namespace MLPayment.Data.Helpers
         }
 
         /// <summary>
-        /// Obtains the last day of the current month
+        /// Returns the same date but with the last day of the month
         /// </summary>
         /// <param name="date"></param>
         /// <returns></returns>

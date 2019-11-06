@@ -29,7 +29,7 @@ namespace MLPayment.Services.Http
             {
                 var response = new AddBillResponse();
                 var bc = new BillComponent();
-                response.Result = bc.Add(request.User, request.Bill);
+                response.Result = bc.Add(request.idUser, request.Bill);
                 return response;
             }
             catch (Exception ex)
@@ -43,6 +43,34 @@ namespace MLPayment.Services.Http
             }
         }
 
+        /// <summary>
+        /// Get request that responses a list of bills
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        [Route("GetTop1000Bills")]
+        public GetTop1000BillsResponse GetTop1000Charges()
+        {
+            try
+            {
+                var response = new GetTop1000BillsResponse();
+                var bc = new BillComponent();
+
+                response.Bills = bc.GetTop1000();
+
+                return response;
+            }
+            catch (Exception ex)
+            {
+                var httpError = new HttpResponseMessage()
+                {
+                    StatusCode = (HttpStatusCode)422,
+                    ReasonPhrase = ex.Message
+                };
+
+                throw new HttpResponseException(httpError);
+            }
+        }
 
         /// <summary>
         /// Get request that responses the user with the selected Id

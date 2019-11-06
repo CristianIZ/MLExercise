@@ -28,7 +28,7 @@ namespace MLPayment.Services.Http
             {
                 var response = new AddChargeResponse();
                 var bc = new ChargeComponent();
-                response.Result = bc.Add(request.User, request.Charge);
+                response.Result = bc.Add(request.IdUser, request.Charge);
                 return response;
             }
             catch (Exception ex)
@@ -57,7 +57,36 @@ namespace MLPayment.Services.Http
                 var response = new GetChargeResponse();
                 var bc = new ChargeComponent();
 
-                response.Result = bc.GetById(id);
+                response.Charge = bc.GetById(id);
+
+                return response;
+            }
+            catch (Exception ex)
+            {
+                var httpError = new HttpResponseMessage()
+                {
+                    StatusCode = (HttpStatusCode)422,
+                    ReasonPhrase = ex.Message
+                };
+
+                throw new HttpResponseException(httpError);
+            }
+        }
+
+        /// <summary>
+        /// Get request that responses a list of Charges
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        [Route("GetTop1000Charges")]
+        public GetTop1000ChargesResponse GetTop1000Charges()
+        {
+            try
+            {
+                var response = new GetTop1000ChargesResponse();
+                var bc = new ChargeComponent();
+
+                response.Charges = bc.GetTop1000();
 
                 return response;
             }

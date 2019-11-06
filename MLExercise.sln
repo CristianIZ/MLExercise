@@ -33,6 +33,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MLPayment.Entities", "MLPay
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MLPayment.UI.Web", "MLPayment.UI.Web\MLPayment.UI.Web.csproj", "{3BD08F7E-1F0F-4A33-80E6-38660EB37C25}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Unit Test", "Unit Test", "{49F49F2F-33FD-46F7-A433-3DFE58B41E15}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApiTest", "WebApiTest\WebApiTest.csproj", "{558E2ED2-71D3-494E-BC45-ED23CE64BC2A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -75,6 +79,10 @@ Global
 		{3BD08F7E-1F0F-4A33-80E6-38660EB37C25}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3BD08F7E-1F0F-4A33-80E6-38660EB37C25}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3BD08F7E-1F0F-4A33-80E6-38660EB37C25}.Release|Any CPU.Build.0 = Release|Any CPU
+		{558E2ED2-71D3-494E-BC45-ED23CE64BC2A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{558E2ED2-71D3-494E-BC45-ED23CE64BC2A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{558E2ED2-71D3-494E-BC45-ED23CE64BC2A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{558E2ED2-71D3-494E-BC45-ED23CE64BC2A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -89,9 +97,10 @@ Global
 		{36640D3D-C328-4D8A-A7C1-3613E99E7297} = {74B4B5D0-ED60-42A8-B4C5-56FE7D823B3C}
 		{44F4FEBC-3ABE-4022-98B5-59E7317ACB73} = {EF6DD909-1C75-4CA9-8B41-AF39A4694DE6}
 		{3BD08F7E-1F0F-4A33-80E6-38660EB37C25} = {A2FFACAA-359F-4D6F-A83F-5B1E40879CD1}
+		{558E2ED2-71D3-494E-BC45-ED23CE64BC2A} = {49F49F2F-33FD-46F7-A433-3DFE58B41E15}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		EnterpriseLibraryConfigurationToolBinariesPathV6 = packages\EnterpriseLibrary.Common.6.0.1304.0\lib\NET45;packages\EnterpriseLibrary.Data.6.0.1304.0\lib\NET45
 		SolutionGuid = {2253B5C6-90D7-4498-998F-24E75DD90E00}
+		EnterpriseLibraryConfigurationToolBinariesPathV6 = packages\EnterpriseLibrary.Common.6.0.1304.0\lib\NET45;packages\EnterpriseLibrary.Data.6.0.1304.0\lib\NET45
 	EndGlobalSection
 EndGlobal

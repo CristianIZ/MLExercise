@@ -1,5 +1,6 @@
-﻿using MLPayment.Entities;
-using MLPayment.UI.Process;
+﻿using MLPayment.UI.Process;
+using MLPayment.UI.Web.Dtos;
+using MLPayment.UI.Web.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,39 +9,37 @@ using System.Web.Mvc;
 
 namespace MLPayment.UI.Web.Controllers
 {
-    public class UserController : Controller
+    public class BillController : Controller
     {
-        // GET: User
+        // GET: Bill
         public ActionResult Index()
         {
-            var ep = new UserProcess();
+            var ep = new BillProcess();
             var lista = ep.GetTop1000();
             return View("Index", lista);
         }
 
-        // GET: User/Details/5
+        // GET: Bill/Details/5
         public ActionResult Details(int id)
         {
-            var ep = new UserProcess();
-            var user = ep.GetById(id);
-            return View("Details", user);
+            return View();
         }
 
-        // GET: User/Create
+        // GET: Bill/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: User/Create
+        // POST: Bill/Create
         [HttpPost]
-        public ActionResult Create(User user)
+        public ActionResult Create(BillDto billDto)
         {
             try
             {
-                // TODO: Add insert logic here
-                var ep = new UserProcess();
-                var newUser = ep.Add(user);
+                var bill = BillModel.MapBill(billDto);
+                var ep = new BillProcess();
+                var lista = ep.Add(billDto.IdUser, bill);
 
                 return RedirectToAction("Index");
             }
@@ -50,23 +49,19 @@ namespace MLPayment.UI.Web.Controllers
             }
         }
 
-        // GET: User/Edit/5
+        // GET: Bill/Edit/5
         public ActionResult Edit(int id)
         {
-            var ep = new UserProcess();
-            var user = ep.GetById(id);
-            return View("Edit", user);
+            return View();
         }
 
-        // POST: User/Edit/5
+        // POST: Bill/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, User user)
+        public ActionResult Edit(int id, FormCollection collection)
         {
             try
             {
                 // TODO: Add update logic here
-                var ep = new UserProcess();
-                ep.Edit(user);
 
                 return RedirectToAction("Index");
             }
@@ -76,13 +71,13 @@ namespace MLPayment.UI.Web.Controllers
             }
         }
 
-        // GET: User/Delete/5
+        // GET: Bill/Delete/5
         public ActionResult Delete(int id)
         {
             return View();
         }
 
-        // POST: User/Delete/5
+        // POST: Bill/Delete/5
         [HttpPost]
         public ActionResult Delete(int id, FormCollection collection)
         {

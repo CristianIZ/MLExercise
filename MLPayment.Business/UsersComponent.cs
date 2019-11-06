@@ -28,9 +28,9 @@ namespace MLPayment.Business
         /// Obtains a list of user for a quick view
         /// </summary>
         /// <returns></returns>
-        public List<User> GetTop1000()
+        public IList<User> GetTop1000()
         {
-            List<User> result = default(List<User>);
+            var result = default(IList<User>);
 
             var userDAC = new UserDAC();
             result = userDAC.Read();
