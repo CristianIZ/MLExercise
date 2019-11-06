@@ -1,0 +1,9 @@
+Instrucciones para Correr la aplicacion
+
+1- Se debe ubicar el servidor local con el puerto de host emulado (Ej: https://localhost:44316)
+2- Configurar la key "serviceUrl" en el Web.config dentro del proyecto MlPayment.UI.Web (EJ: <add key="serviceUrl" value="https://localhost:44316" />)
+Como asi tambien configurar el connection string para la base de datos en SQL con las debidas credenciales (Ej: <add name="DefaultConnection" connectionString="Data Source=DESKTOP-FUR7Q2K;Initial Catalog=MLPayment;User ID=;Password=" providerName="System.Data.SqlClient" />)
+3- Correr el script de creacion de base de datos
+4- A la hora de levantar el proyecto se debe iniciar la aplicacion "MLPayment.UI.Web" Conjunto con "MLPayment.Hosts.Web"
+La aplicacion debe ser accedida a traves del proyecto MLPayment.UI.Web
+NOTA: una vez levantada la aplicacion "MLPayment.Hosts.Web" no mostrara ninguna vista, pero se puede acceder a un listado completo con los servicios disponibles si se accede a la URL "localhost:PUERTO/swagger"
