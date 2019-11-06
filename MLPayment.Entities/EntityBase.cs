@@ -23,5 +23,21 @@ namespace MLPayment.Entities
                 .Where(p => !p.PropertyType.IsGenericType && !p.PropertyType.IsArray)
                 .Select(p => string.Format("{0}={1}", p.Name, p.GetValue(this, null))));
         }
+
+        [DataMember]
+        [DisplayName("DateIndex")]
+        public int DateIndex { get; set; }
+
+        [DataMember]
+        [DisplayName("DateCreation")]
+        public DateTime DateCreation { get; set; }
+
+        [DataMember]
+        [DisplayName("DateModification")]
+        public DateTime? DateModification { get; set; }
+
+        [DataMember]
+        [DisplayName("Valid")]
+        public bool Valid { get; set; }
     }
 }

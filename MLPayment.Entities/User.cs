@@ -46,21 +46,5 @@ namespace MLPayment.Entities
         [DataMember]
         [DisplayName("BirthDate")]
         public int BirthDate { get; set; }
-
-        [DataMember]
-        [DisplayName("DateIndex")]
-        public int DateIndex { get; set; }
-
-        [DataMember]
-        [DisplayName("DateCreation")]
-        public DateTime DateCreation { get; set; }
-
-        [DataMember]
-        [DisplayName("DateModification")]
-        public DateTime? DateModification { get; set; }
-
-        [DataMember]
-        [DisplayName("Enabled")]
-        public bool Valid { get; set; }
     }
 }

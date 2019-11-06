@@ -1,21 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
+using entity = MLPayment.Entities;
 
-namespace MLPayment.Entities
+namespace MLPayment.Services.Contracts.BillCharge.Request
 {
-    public class BillCharge : EntityBase
+    [DataContract]
+    public class GetBillChargeRequest
     {
         [DataMember]
-        [DisplayName("IdBill")]
         public int IdBill { get; set; }
 
         [DataMember]
-        [DisplayName("IdCharge")]
         public int IdCharge { get; set; }
     }
 }

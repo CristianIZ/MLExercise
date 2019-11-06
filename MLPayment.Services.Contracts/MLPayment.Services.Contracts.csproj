@@ -42,6 +42,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BillCharge\Request\AddBillChargeRequest.cs" />
+    <Compile Include="BillCharge\Request\GetBillChargeRequest.cs" />
+    <Compile Include="BillCharge\Response\AddBillChargeResponse.cs" />
+    <Compile Include="BillCharge\Response\GetBillChargeResponse.cs" />
+    <Compile Include="Bill\Request\AddBillRequest.cs" />
+    <Compile Include="Bill\Request\GetBillRequest.cs" />
+    <Compile Include="Bill\Rsponse\AddBillResponse.cs" />
+    <Compile Include="Bill\Rsponse\GetBillResponse.cs" />
     <Compile Include="Charge\Request\AddChargeRequest.cs" />
     <Compile Include="Charge\Request\GetChargeRequest.cs" />
     <Compile Include="Charge\Response\AddChargeResponse.cs" />

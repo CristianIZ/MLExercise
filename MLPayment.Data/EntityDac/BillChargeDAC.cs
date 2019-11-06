@@ -45,8 +45,8 @@ namespace MLPayment.Data
             var db = DatabaseFactory.CreateDatabase(CONNECTION_NAME);
             using (DbCommand cmd = db.GetStoredProcCommand(SqlQuerys.GetBillById))
             {
-                db.AddInParameter(cmd, "@idBill", DbType.Int32, idBill);
-                db.AddInParameter(cmd, "@idBill", DbType.Int32, idBill);
+                db.AddInParameter(cmd, "@IdBill", DbType.Int32, idBill);
+                db.AddInParameter(cmd, "@IdCharge", DbType.Int32, idCharge);
                 using (IDataReader dr = db.ExecuteReader(cmd))
                 {
                     if (dr.Read())
