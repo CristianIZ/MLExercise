@@ -11,5 +11,6 @@ namespace MLPayment.Services.Contracts.BillCharge.Response
     [DataContract]
     public class GetBillChargeResponse
     {
+        public entity.BillCharge Result { get; set; }
     }
 }

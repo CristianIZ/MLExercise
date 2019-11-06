@@ -12,6 +12,9 @@ namespace MLPayment.Services.Contracts.BillCharge.Request
     public class AddBillChargeRequest
     {
         [DataMember]
-        public entity.BillCharge BillCharge { get; set; }
+        public entity.Bill Bill { get; set; }
+        
+        [DataMember]
+        public entity.Charge Charge { get; set; }
     }
 }

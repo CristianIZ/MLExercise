@@ -27,7 +27,7 @@ namespace MLPayment.Services.Http
             {
                 var response = new AddBillChargeResponse();
                 var bc = new BillChargeComponent();
-                response.Result = bc.Add(request.User, request.Bill);
+                response.Result = bc.Add(request.Bill, request.Charge);
                 return response;
             }
             catch (Exception ex)
@@ -49,14 +49,14 @@ namespace MLPayment.Services.Http
         /// <returns></returns>
         [HttpGet]
         [Route("GetById")]
-        public GetBillChargeResponse GetById(int id)
+        public GetBillChargeResponse GetById(int idBill, int idCharge)
         {
             try
             {
                 var response = new GetBillChargeResponse();
                 var bc = new BillChargeComponent();
 
-                response.Result = bc.GetById(id);
+                response.Result = bc.GetById(idBill, idCharge);
 
                 return response;
             }
